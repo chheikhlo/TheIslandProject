@@ -7,6 +7,7 @@ public class Bateau {
 
     private boolean peutControler = true;
 
+
     public Bateau(){};
 
     public Bateau(List<Explorateur> nbExpDansBateau){
