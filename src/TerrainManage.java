@@ -21,7 +21,7 @@ public class TerrainManage {
     }
     public void draw(Graphics2D g){
         g.drawImage(terrain.Island,0,0,gp.ScreenWidth,gp.ScreenHeight,null);
-        g.drawImage(terrain.Plage,0,0,45,55,null);
+        g.drawImage(terrain.Plage,85,60,45,55,null);
 
 
 
