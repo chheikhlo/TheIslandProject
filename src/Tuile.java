@@ -6,6 +6,10 @@ public class Tuile {
 
     public Tuile(){}
 
+    public Tuile(Terrain terrain) {
+        this.terrain = terrain;
+    }
+
     public Tuile(Terrain terrain, Creature creature) {
         this.terrain = terrain;
         this.creature = creature;

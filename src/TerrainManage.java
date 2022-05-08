@@ -3,17 +3,18 @@ import java.awt.*;
 import java.io.IOException;
 
 public class TerrainManage {
-    Terrain terrain ;
+    Tuile tuile ;
+    Terrain terrain = new Terrain();
     GamePanel gp;
 
     public TerrainManage(GamePanel gp){
         this.gp = gp;
-        terrain = new Terrain();
+        tuile = new Tuile(terrain);
         getTerrain();
     }
     public void getTerrain(){
         try {
-            terrain.Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
+            tuile.getTerrain().Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
             //terrain.Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
