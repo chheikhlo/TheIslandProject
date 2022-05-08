@@ -7,7 +7,6 @@ public class TerrainManage {
     Terrain terrain = new Terrain();
     GamePanel gp;
 
-
     public TerrainManage(GamePanel gp){
         this.gp = gp;
         tuile = new Tuile(terrain);
