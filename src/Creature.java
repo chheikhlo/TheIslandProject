@@ -30,9 +30,7 @@ public class Creature {
         this.requin = requin;
     }
 
-    public Image getSerpent() {
-        return serpent;
-    }
+    public Image getSerpent() {return serpent;}
 
     public void setSerpent(Image serpent) {
         this.serpent = serpent;

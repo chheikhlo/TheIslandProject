@@ -14,15 +14,14 @@ public class TerrainManage {
     public void getTerrain(){
         try {
             terrain.Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
-            terrain.Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
+            //terrain.Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
     public void draw(Graphics2D g){
         g.drawImage(terrain.Island,0,0,gp.ScreenWidth,gp.ScreenHeight,null);
-        g.drawImage(terrain.Plage,85,60,45,55,null);
-
+        g.drawImage(terrain.Plage,85,60,45,50,null);
 
 
     }
