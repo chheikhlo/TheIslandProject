@@ -3,27 +3,42 @@ import java.awt.*;
 import java.io.IOException;
 
 public class TerrainManage {
+    Polygon p1 = new Polygon();
+
     Terrain terrain ;
-    GamePanel gp;
+    GamePanel gp ;
+
+    int x,y;
 
     public TerrainManage(GamePanel gp){
         this.gp = gp;
         terrain = new Terrain();
         getTerrain();
     }
+
+    public void draw(Graphics2D g  ){
+       // System.out.print("hello");
+        // System.out.print("status is "+gp.Status);
+     //  if (gp.Status == true) {
+       //     System.out.print("x = " + x);
+            g.drawImage(terrain.Plage, 30, 50, 45, 55, null);
+
+        //}
+
+        int[] xp  = {118,148,178,178,148,118};
+        int[] yp  = {68,51,67,100,115,97};
+
+         g.drawPolygon(xp,yp,6);
+
+
+
+    }
     public void getTerrain(){
         try {
-            terrain.Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
+
             terrain.Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-    public void draw(Graphics2D g){
-        g.drawImage(terrain.Island,0,0,gp.ScreenWidth,gp.ScreenHeight,null);
-        g.drawImage(terrain.Plage,85,60,45,55,null);
-
-
-
     }
 }
