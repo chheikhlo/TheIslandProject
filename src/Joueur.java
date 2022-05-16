@@ -11,7 +11,7 @@ public class Joueur {
 
     public Joueur(){}
 
-    public Joueur(String name, String color, List<Explorateur> listExp, Set<Bateau> listBat){
+    public Joueur(String name, String color, List<Explorateur> listExp){
         this.nom = name;
         this.Couleur = color;
 

@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements  Runnable  {
      Image img = null;
      int x,y;
      TerrainManage terrainManage = new TerrainManage(this);
-     CreatureManage creatureManage = new CreatureManage(this);
+     //CreatureManage creatureManage = new CreatureManage(this);
 
 
     public GamePanel() throws IOException {
@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements  Runnable  {
         Graphics2D g2 = (Graphics2D) g;
         Graphics2D g3 = (Graphics2D) g;
         terrainManage.draw(g2);
-        creatureManage.draw(g3);
+        //creatureManage.draw(g3);
         g2.dispose();
 
     }
