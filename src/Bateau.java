@@ -7,6 +7,8 @@ public class Bateau {
 
     private boolean peutControler = true;
 
+    private boolean EtrePlacer = false;
+
 
     public Bateau(){};
 
@@ -86,5 +88,13 @@ public class Bateau {
 
     public void setPeutControler(boolean peutControler) {
         this.peutControler = peutControler;
+    }
+
+    public boolean peutEtrePlacer() {
+        return EtrePlacer;
+    }
+
+    public void setEtrePlacer(boolean EtrePlacer) {
+        this.EtrePlacer = EtrePlacer;
     }
 }

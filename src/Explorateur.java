@@ -2,8 +2,9 @@ public class Explorateur {
 
     private String couleur;
     private int score;
-
     private Tuile tuile;
+
+    private boolean dejaPlacer = false;
 
     public Explorateur(){}
 
@@ -11,6 +12,8 @@ public class Explorateur {
         this.couleur = color;
         this.score = numberTresor;
     }
+
+
     public String getCouleur() {
         return couleur;
     }
@@ -33,5 +36,21 @@ public class Explorateur {
 
     public void setTuile(Tuile tuile) {
         this.tuile = tuile;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public boolean estDejaPlacer() {
+        return dejaPlacer;
+    }
+
+    public void setDejaPlacer(boolean dejaPlacer) {
+        this.dejaPlacer = dejaPlacer;
     }
 }

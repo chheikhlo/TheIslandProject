@@ -22,6 +22,42 @@ public class Joueur {
         }
     }
 
+    /**
+     * Permet de regarder le score d'un explorateur.
+     * On vérifie déjà si l'explorateur n'est pas encore placer sur tuile afin de pouvoir
+     * permettre une vue sur son score au joueur
+     * @param explorateur
+     * @return
+     */
+    public int regarderScoreExplorateur(Explorateur explorateur){
+        if(explorateur.estDejaPlacer() == true){
+            return explorateur.getScore();
+        }else
+            //coté graphic on va effectuer une verification si la fonction retourne 0
+            //on affiche pas le score
+            return 0;
+    }
+
+    /**
+     * Permet de vérifier si les joeurs peuvent commencer à placer les bateau
+     * Pour cela il faudrait donc que chaque explorateur ait son attribut nommé "dejaPlacer" à true
+     * Sinon pas encore de possibilité pour placer un bateau
+     * @param listJoueurs
+     * @return
+     */
+    public boolean peutPlacerBateau(List<Joueur> listJoueurs){
+        boolean placer = true;
+        for(int i=0;i<listJoueurs.size();i++){
+            for(int j=0;j<listJoueurs.get(i).getPionsExp().size();j++) {
+                if(listJoueurs.get(i).getPionsExp().get(j).estDejaPlacer() == true){
+                    placer = true;
+                }else
+                    return false;
+            }
+        }
+        return placer;
+    }
+
     public String getNom() {
         return nom;
     }

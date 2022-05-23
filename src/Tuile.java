@@ -3,6 +3,7 @@
 public class Tuile {
     private Terrain terrain;
     private Creature creature;
+    private Explorateur explorateur;
 
     public Tuile(){}
 
@@ -29,5 +30,13 @@ public class Tuile {
 
     public void setCreature(Creature creature) {
         this.creature = creature;
+    }
+
+    public Explorateur getExplorateur() {
+        return explorateur;
+    }
+
+    public void setExplorateur(Explorateur explorateur) {
+        this.explorateur = explorateur;
     }
 }

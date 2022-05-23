@@ -4,6 +4,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -11,19 +12,16 @@ import java.util.Scanner;
 
 public class Partie implements ActionListener, WindowListener{
 
-    private List<Explorateur> pionsExp2 = new ArrayList();
-    private HashSet<Bateau> batJoueur = new HashSet();
-    private List<Joueur> listJoueurs = new ArrayList();
-    private List<String> nomsJoueurs = new ArrayList();
 
-
-    private String[] tabCouleur = {"Bleu","Vert","Jaune","Rouge"};
+    //private  = {"Bleu","Vert","Jaune","Rouge"};
 
     /**
      * Innitialisation des pions explorateurs
-     * en remplissant la liste de pions explorateurs
+     *       en remplissant la liste une pions explorateurs
+     * @param pionsExp2
+     * @param tabCouleur
      */
-    public void initialiserExplorateurs() {
+    public void initialiserExplorateurs(List<Explorateur> pionsExp2, String[] tabCouleur) {
         for (int i = 0; i < tabCouleur.length; i++) {
             //Création des Explorateurs
             Explorateur newExp1 = new Explorateur(tabCouleur[i], 1);
@@ -53,9 +51,10 @@ public class Partie implements ActionListener, WindowListener{
 
     /**
      * Innitialisation des 12 bateaux
-     * en remplissant la liste de bateau
+     *   en remplissant la liste de bateau
+     * @param batJoueur
      */
-    public void initialiserBateaux() {
+    public void initialiserBateaux(HashSet<Bateau> batJoueur) {
         for (int i = 0; i <= 12; i++) {
             //Création des Bateaux
             Bateau newBateau = new Bateau();
@@ -65,10 +64,11 @@ public class Partie implements ActionListener, WindowListener{
 
     /**
      * recupère un par un les noms enregistré dans un fichier, puis
-     * les ajoutes dans une liste de noms
+     *   les ajoutes dans une liste de noms
+     * @param nomsJoueurs
      * @throws FileNotFoundException
      */
-    public void remplirListNom() throws FileNotFoundException {
+    public void remplirListNom(List<String> nomsJoueurs) throws FileNotFoundException {
         Scanner scan = new Scanner(new File("C:\\New\\src\\nomFichier.txt"));
         int line=0;
         while (scan.hasNextLine()) {
@@ -82,19 +82,73 @@ public class Partie implements ActionListener, WindowListener{
     }
 
     /**
-     * initialiser les joueurs de la partie en recevant leur effectif en paramètre
+     * Créer les joeurs avec leurs pions aux couleurs adequats ainsi que leurs noms
+     * @param pionsExp2
+     * @param listJoueurs
+     * @param nomsJoueurs
+     * @param tabCouleur
      */
-    public void initialiserJoueurs(){
+    public void initialiserJoueurs(List<Explorateur> pionsExp2, List<Joueur> listJoueurs, List<String> nomsJoueurs, String[] tabCouleur){
         for (int i = 0; i < nomsJoueurs.size(); i++) {
             Joueur newJoueur = new Joueur(nomsJoueurs.get(i),tabCouleur[i],pionsExp2);
             listJoueurs.add(newJoueur);
         }
     }
 
+    /**
+     * Permet de définir le dee avec les creatures a niveau des faces
+     * @param deeCreature
+     * @return
+     * @throws IOException
+     */
+    public List<Creature> creerDee(List<Creature> deeCreature) throws IOException {
+        Baleine baleine = new Baleine();
+        Requin requin = new Requin();
+        Serpent serpent = new Serpent();
+        deeCreature.add(baleine);
+        deeCreature.add(requin);
+        deeCreature.add(serpent);
+
+        return deeCreature;
+    }
+
+    /**
+     * Permet de retourner la face jouée du dee
+     * @param deeCreature
+     * @return
+     */
+    public Creature jouerDee(List<Creature> deeCreature){
+        int nbAleatoire = (int) Math.random() * (3-1) + 1;
+        return deeCreature.get(nbAleatoire);
+    }
+
+    /**
+     * choisir aléatoirement le joueur débutant
+     * @param listJoueurs
+     * @return
+     */
+    public Joueur definirJoueurDebutant(List<Joueur> listJoueurs){
+        int nbAleatoire = (int) Math.random() * (listJoueurs.size()-1) + 1;
+        return listJoueurs.get(nbAleatoire);
+    }
+
+    /**
+     * Verifier si Aucun explorateur est present sur une tuile ou pas
+     * @param tuile
+     * @return
+     */
+    public boolean explorateurEstPresent(Tuile tuile){
+        if(tuile.getExplorateur().equals(null)){
+            return false;
+        }
+
+        return true;
+    }
 
 
 
 
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 
