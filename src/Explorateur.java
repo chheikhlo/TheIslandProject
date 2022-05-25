@@ -29,6 +29,7 @@ public class Explorateur {
     }
 
 
+
     public String getCouleur() {
         return couleur;
     }
