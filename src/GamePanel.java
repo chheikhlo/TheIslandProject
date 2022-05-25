@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
 
         //int[] xp  = {30,40,50,40,30,20};
         //int[] yp  = {50,50,40,20,20,40};
-        g2.setColor(Color.RED);
+        g2.setColor(Color.blue);
         //g2.drawPolygon(xp,yp,xp.length);
         g2.drawImage(Island, 0, 0, ScreenWidth, ScreenHeight, null);
         hexagone.painthexagon(g2);
