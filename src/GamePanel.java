@@ -5,19 +5,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.PathIterator;
-import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+
+
+
 // add mouse motion listener
 public class GamePanel extends JPanel implements  Runnable, MouseListener , MouseMotionListener {
     // reglage d'ecran
@@ -40,21 +31,59 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
     Thread gameThread;
     Image Island;
     Hexagon hexagone = new Hexagon(0,0);
+    Terrain terrain = new Terrain();
 
 
-    int x, y;
+    int x = 0, y = 0 , i ;
+    int xHega, yHega ;
     Boolean Status = false;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Status = true;
+
+                while ( Status == true) {
+                    System.out.println("True ? Flase : " + Status);
+                    terrain.tuileForet();
+                   // e.getComponent().repaint();
+                    i =+ 1;
+                    x = mouse.x; y = mouse.y - 20;
+
+                    Status = false;
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         this.addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
                 super.mouseMoved(e);
                 mouse = e.getPoint();
-                e.getComponent().repaint();
+                //e.getComponent().repaint();
 
             }
         });
@@ -78,10 +107,7 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
 
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        //int xi = 118;
-        //int yi = 261;
 
-        //Hexagone hexagone = new Hexagone(xi, yi);
         super.paintComponent(g2);
         try {
             Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
@@ -89,22 +115,54 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
             throw new RuntimeException(e);
         }
 
-        //int[] xp  = {30,40,50,40,30,20};
-        //int[] yp  = {50,50,40,20,20,40};
-        g2.setColor(Color.RED);
-        //g2.drawPolygon(xp,yp,xp.length);
+
+        g2.setColor(Color.darkGray);
+
         g2.drawImage(Island, 0, 0, ScreenWidth, ScreenHeight, null);
-        hexagone.painthexagon(g2);
+        //hexagone.painthexagon(g2);
         g2.drawString(
                 "contains(" + (mouse.x) + ", " + (mouse.y) + ") is "
                         + hexagone.contains(209, 19), 10, 20);
 
+        terrain.paintg(g2,x,y);
+        xHega = 303; yHega = 146;
+        for(int i = 0;i<4;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i, yHega, 58, 67, null);
+
+        }
+        xHega = 272; yHega = 195;
+        for(int i = 0 ; i<5;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i, yHega, 58, 67, null);
+        }
+        xHega = 181;yHega=245;
+        for(int i = 0 ; i<8;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i+1, yHega, 58, 66, null);
+        }
+        xHega = 210;yHega=294;
+        for(int i = 0 ; i<7;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i+1, yHega, 58, 66, null);
+        }
+        xHega = 181;yHega=343;
+        for(int i = 0 ; i<8;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i+1, yHega, 58, 66, null);
+        }
+        xHega = 272;yHega=391;
+        for(int i = 0 ; i<5;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i+1, yHega, 58, 66, null);
+        }
+        xHega = 303;yHega=440;
+        for(int i = 0 ; i<4;i++) {
+            terrain.Maptuile();
+            g2.drawImage(terrain.map, xHega+60*i+1, yHega, 58, 66, null);
+        }
 
 
-        //g2.drawPolygon(hexagone);
-        //hexagone.painthexagon(g2,x,y);
-        //terrainManage.draw(g2);
-        //hexagone.drawHexagon(g2, 118, 261);
 
         g2.dispose();
 
@@ -121,6 +179,19 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
         }else System.out.println("False");
     }
 
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+        System.out.println(e.getX()+"  "+e.getY() );
+        event(e.getX(),e.getY());
+
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -144,21 +215,6 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
 
     @Override
     public void mouseExited(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        x = e.getX();
-        y = e.getY();
-        System.out.println("YESSS");
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-
-        System.out.println(e.getX()+"  "+e.getY() );
-        event(e.getX(),e.getY());
 
     }
 }

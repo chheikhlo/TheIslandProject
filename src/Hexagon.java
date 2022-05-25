@@ -84,7 +84,7 @@ public class Hexagon extends Polygon {
             for(int i=0; i<line.get(0); i++ ){
                 System.out.println("i:" +i+" ,xi: "+xi+", yi: "+yi);
 
-                g2.drawPolygon(new Hexagon(xi, yi));
+                //g2.drawPolygon(new Hexagon(xi, yi));
 
 
                 if(i >= line.get(0)/2 || (i<line.get(0)-2 && idx_reglage>7 && i >= line.get(0)/2)) xi-=4;
