@@ -21,7 +21,7 @@ public class Partie implements ActionListener, WindowListener{
      * @param pionsExp2
      * @param tabCouleur
      */
-    public void initialiserExplorateurs(List<Explorateur> pionsExp2, String[] tabCouleur) {
+    public void initialiserExplorateurs(List<Explorateur> pionsExp2, String[] tabCouleur) throws IOException {
         for (int i = 0; i < tabCouleur.length; i++) {
             //Création des Explorateurs
             Explorateur newExp1 = new Explorateur(tabCouleur[i], 1);

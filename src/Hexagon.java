@@ -44,7 +44,7 @@ public class Hexagon extends Polygon {
         List<List<Integer>> lines = new ArrayList<List<Integer>>();
 
         try {
-            Scanner scanner = new Scanner(new File("C:\\Users\\Medmat\\Desktop\\mapdata.txt"));
+            Scanner scanner = new Scanner(new File("C:\\Users\\dabli\\OneDrive\\Bureau\\mapdata.txt"));
 
             while (scanner.hasNextLine()) {
                 // List line = new List();
