@@ -52,8 +52,11 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
                     terrain.tuileForet();
                    // e.getComponent().repaint();
                     i =+ 1;
-                    x = mouse.x; y = mouse.y - 20;
-
+                    x = e.getX(); y = e.getY();
+                    hexagone.checkxy(x,y);
+                    x = hexagone.xdraw;
+                    y = hexagone.ydraw - 17;
+                    e.getComponent().repaint();
                     Status = false;
                 }
             }
@@ -115,18 +118,18 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
             throw new RuntimeException(e);
         }
 
-<<<<<<< HEAD
+
 
         g2.setColor(Color.darkGray);
 
-=======
+
         //int[] xp  = {30,40,50,40,30,20};
         //int[] yp  = {50,50,40,20,20,40};
         g2.setColor(Color.blue);
         //g2.drawPolygon(xp,yp,xp.length);
->>>>>>> origin/main
+
         g2.drawImage(Island, 0, 0, ScreenWidth, ScreenHeight, null);
-        //hexagone.painthexagon(g2);
+
         g2.drawString(
                 "contains(" + (mouse.x) + ", " + (mouse.y) + ") is "
                         + hexagone.contains(209, 19), 10, 20);
@@ -169,11 +172,13 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
             g2.drawImage(terrain.map, xHega+60*i+1, yHega, 58, 66, null);
         }
 
+        hexagone.drawHexagon(g2);
+
 
 
         g2.dispose();
-
-
+        hexagone.Setuphex();
+        hexagone.affichage();
 
 
 
