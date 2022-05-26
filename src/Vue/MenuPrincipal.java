@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 
 public class MenuPrincipal implements ActionListener {
-    JButton jouer , quitter ;
+    JButton jouer , quitter , aide;
 
     public MenuPrincipal() {
         JFrame menu = new JFrame() ;
@@ -23,6 +23,9 @@ public class MenuPrincipal implements ActionListener {
         JButton quitter = new JButton();
         quitter.setBounds(313 ,833 ,350, 90 );
         quitter.addActionListener(this);
+        JButton aide = new JButton();
+        aide.setBounds(836,915,155,70);
+        aide.addActionListener();
 
         menu.pack();
         menu.setVisible(true);
@@ -32,10 +35,14 @@ public class MenuPrincipal implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==jouer){
-            //Jeu
+            //accéder à l'écran du Jeu
         }
         if(e.getSource()==quitter){
             System.exit(0);
+        }
+        if(e.getSource()=aide){
+            //ouvrir fichier pdf des régles du jeu
+
         }
     }
 }
