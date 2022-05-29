@@ -14,6 +14,7 @@ public class Tuile {
     public Tuile(Terrain terrain, Creature creature) {
         this.terrain = terrain;
         this.creature = creature;
+
     }
 
     public Terrain getTerrain() {
