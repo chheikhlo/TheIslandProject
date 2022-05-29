@@ -12,6 +12,9 @@ public class Terrain {
     Image Plage  = null;
     Image Island = null ;
     Image map = null;
+    int count = 0;
+    int xHega; int yHega;
+
 
 
 
@@ -26,13 +29,66 @@ public class Terrain {
 
 
     }
+     public void paintAle(Graphics2D g2){
+
+        xHega = 303;
+        yHega = 146;
+        for (int i = 0; i < 4; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+
+        }
+        xHega = 272;
+        yHega = 195;
+        for (int i = 0; i < 5; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+        }
+        xHega = 181;
+        yHega = 245;
+        for (int i = 0; i < 8; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+        xHega = 210;
+        yHega = 294;
+        for (int i = 0; i < 7; i++) {
+            Maptuile();
+            if( i == 3){
+                map = null;
+            }
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+        xHega = 181;
+        yHega = 343;
+        for (int i = 0; i < 8; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+        xHega = 272;
+        yHega = 391;
+        for (int i = 0; i < 5; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+        xHega = 303;
+        yHega = 440;
+        for (int i = 0; i < 4; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+    }
+
 
     public void Maptuile(){
+
         Image tabmap[] = {Montagne,Plage,Foret};
         int min = 0; int max = 3;
         Random ran = new Random();
         int a = ran.nextInt(max + min) + min;
+
         map = tabmap[a];
+
 
     }
     public void tuileForet () {
@@ -47,10 +103,11 @@ public class Terrain {
 
     public void  paintg( Graphics2D g,int x,int y ) {
 
-        g.drawImage(Foret,x,y,59,62,null);
+        //g.drawImage(Foret,x,y,59,62,null);
         //g.drawImage(Montagne,x,y,59,62,null);
 
 
 
     }
 }
+
