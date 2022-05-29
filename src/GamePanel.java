@@ -37,6 +37,9 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
     Image Island;
     Hexagon hexagone = new Hexagon(0, 0);
 
+    Image tuilemap[] = new Image[50];
+    Image tuileTer[] = new Image[50];
+
     Terrain terrain = new Terrain();
     Creature creature = new Creature();
     Tuile tuile = new Tuile(terrain, creature);
@@ -164,6 +167,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
         terrain.paintg(g2,x,y);
         hexagone.Setuphex();
+        hexagone.affichage();
 
 
 
@@ -172,8 +176,8 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
         tuile.getTerrain().paintg(g2, x, y);
-        creature.paintCreature(g2);
-        terrain.paintAle(g2);
+        creature.paintCreature(g2,tuilemap);
+        terrain.paintAle(g2,tuileTer);
 
         //Pour les 5 serpents sur le plateau
         try {

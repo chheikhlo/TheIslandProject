@@ -41,7 +41,7 @@ public class Hexagon extends Polygon {
         List<List<Integer>> lines = new ArrayList<List<Integer>>();
 
         try {
-            Scanner scanner = new Scanner(new File("C:\\Users\\Medmat\\Desktop\\mapdata.txt"));
+            Scanner scanner = new Scanner(new File("C:\\Users\\dabli\\OneDrive\\Bureau\\mapdata.txt"));
 
             while (scanner.hasNextLine()) {
                 // List line = new List();
@@ -82,9 +82,9 @@ public class Hexagon extends Polygon {
         System.out.println(listhex.size());
         for (Hexagon elem : listhex) {
             for (int i = 0; i < elem.npoints; i++) {
-                //System.out.println(elem.xpoints[i] + "  " + elem.ypoints[i]);
+                System.out.println(elem.xpoints[i] + "  " + elem.ypoints[i]);
             }
-            //System.out.println("-------------------------------");
+            System.out.println("-------------------------------");
 
 
         }
