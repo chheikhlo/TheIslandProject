@@ -14,6 +14,7 @@ public class Creature {
 
 
     Image map = null;
+    int xHega; int yHega;
 
     public  Creature() throws IOException {
         try {
@@ -42,6 +43,72 @@ public class Creature {
         Random ran = new Random();
         int a = ran.nextInt(max + min) + min;
         map = tabmap[a];
+
+    }
+
+    public void paintCreature(Graphics g2 ){
+        xHega = 303;
+        yHega = 146;
+
+        for (int i = 0; i < 4; i++) {
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+
+        }
+        xHega = 272;
+        yHega = 195;
+        for (int i = 0; i < 5; i++) {
+
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+
+        }
+        xHega = 181;
+        yHega = 245;
+        for (int i = 0; i < 8; i++) {
+
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+
+        }
+        //****************************************************
+        // Pour La ligne du milieu
+        xHega = 210;
+        yHega = 294;
+        for (int i = 0; i < 7; i++) {
+
+            Maptuile();
+            if (i == 3){
+                //Après saut du centre pour le serpent
+                map = null ;
+            }
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+
+
+        //***************************************************
+        xHega = 181;
+        yHega = 343;
+        for (int i = 0; i < 8; i++) {
+
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+        xHega = 272;
+        yHega = 391;
+        for (int i = 0; i < 5; i++) {
+
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+        xHega = 303;
+        yHega = 440;
+        for (int i = 0; i < 4; i++) {
+
+            Maptuile();
+            g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+        }
+
 
     }
 
