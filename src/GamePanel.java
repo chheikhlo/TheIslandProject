@@ -9,8 +9,8 @@ import java.io.IOException;
 
 
 
-// add mouse motion listener
-public class GamePanel extends JPanel implements  Runnable, MouseListener , MouseMotionListener {
+
+public class GamePanel extends JPanel implements Runnable, MouseListener , MouseMotionListener {
     // reglage d'ecran
     final int Tules = 20; // chaque tules a 20*20px
     final int scale = 3;
@@ -21,7 +21,15 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
     final int MaxScreenRow = 11;
     final int ScreenWidth = Tulestaill * MaxScreenCol; // 960px width
     final int ScreenHeight = Tulestaill * MaxScreenRow; // 660px height
+    int count = 0 ;
     Point mouse = new Point();
+
+
+
+
+
+
+
 
 
     TerrainManage terrainManage = new TerrainManage(this);
@@ -34,14 +42,20 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
     Tuile tuile = new Tuile(terrain, creature);
 
 
-    int x = 0, y = 0, i;
-    int xHega, yHega;
+
+
+    int x = 0, y = 0 , i ;
+    int xHega, yHega ;
+
+
+
     Boolean Status = false;
 
     public GamePanel() throws IOException {
         this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
+
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -49,11 +63,24 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
 
                 while (Status == true) {
                     System.out.println("True ? Flase : " + Status);
+
+                    terrain.tuileForet();
+
+                    i =+ 1;
+                    x = e.getX(); y = e.getY();
+                    hexagone.checkxy(x,y);
+                    x = hexagone.xdraw;
+                    y = hexagone.ydraw - 17;
+
+
+
+
                     tuile.getTerrain().tuileForet();
                     // e.getComponent().repaint();
                     i = +1;
                     x = mouse.x;
                     y = mouse.y - 20;
+
 
                     Status = false;
                 }
@@ -104,6 +131,10 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
 
     }
 
+    public void update (Graphics2D g){
+
+    }
+
     public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
 
@@ -128,76 +159,21 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
                 "contains(" + (mouse.x) + ", " + (mouse.y) + ") is "
                         + hexagone.contains(209, 19), 10, 20);
 
-        tuile.getTerrain().paintg(g2, x, y);
-        xHega = 303;
-        yHega = 146;
-        for (int i = 0; i < 4; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i, yHega, 58, 67, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i, yHega, 58, 67, null);
 
-        }
-        xHega = 272;
-        yHega = 195;
-        for (int i = 0; i < 5; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i, yHega, 58, 67, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i, yHega, 58, 67, null);
-        }
-        xHega = 181;
-        yHega = 245;
-        for (int i = 0; i < 8; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-        }
-        //****************************************************
-        // Pour La ligne du milieu
-        xHega = 210;
-        yHega = 294;
-        for (int i = 0; i < 3; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-        }
-        //Après saut du centre pour le serpent
-        xHega = 454;
-        yHega = 294;
-        for (int i = 0; i < 3; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-        }
-        //***************************************************
-        xHega = 181;
-        yHega = 343;
-        for (int i = 0; i < 8; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-        }
-        xHega = 272;
-        yHega = 391;
-        for (int i = 0; i < 5; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-        }
-        xHega = 303;
-        yHega = 440;
-        for (int i = 0; i < 4; i++) {
-            tuile.getTerrain().Maptuile();
-            tuile.getCreature().Maptuile();
-            g2.drawImage(tuile.getCreature().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-            g2.drawImage(tuile.getTerrain().map, xHega + 60 * i + 1, yHega, 58, 66, null);
-        }
+         //   terrain.paintAle(g2);
+
+        terrain.paintg(g2,x,y);
+
+
+
+
+
+
+
+
+        tuile.getTerrain().paintg(g2, x, y);
+        creature.paintCreature(g2);
+        terrain.paintAle(g2);
 
         //Pour les 5 serpents sur le plateau
         try {
@@ -215,6 +191,7 @@ public class GamePanel extends JPanel implements  Runnable, MouseListener , Mous
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
 
 
         g2.dispose();
