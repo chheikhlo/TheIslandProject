@@ -25,7 +25,7 @@ public class MenuPrincipal implements ActionListener {
         quitter.addActionListener(this);
         JButton aide = new JButton();
         aide.setBounds(836,915,155,70);
-        aide.addActionListener();
+       // aide.addActionListener();
 
         menu.pack();
         menu.setVisible(true);
@@ -40,7 +40,7 @@ public class MenuPrincipal implements ActionListener {
         if(e.getSource()==quitter){
             System.exit(0);
         }
-        if(e.getSource()=aide){
+        if(e.getSource()==aide){
             //ouvrir fichier pdf des régles du jeu
 
         }

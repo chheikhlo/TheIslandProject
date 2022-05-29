@@ -148,7 +148,7 @@ public class Partie implements ActionListener, WindowListener{
 
 
 
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
 

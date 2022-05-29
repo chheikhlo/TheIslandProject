@@ -29,14 +29,10 @@ public class Hexagon extends Polygon {
 
     /*public  void hexagoneMap ()
     {
-
-
         int [] xP = {xi,xi+30,xi+60,xi+60,xi+30,xi};
         int [] yP = {yi,yi-17,yi+1,yi+32,yi+47,yi+31};
       for(int i =0; i<6;i++){
           hexagone.addPoint(xP[i],yP[i]);
-
-
       }
 */
 

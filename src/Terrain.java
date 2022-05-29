@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Terrain {
 
+    Image imageTerrain = null;
     Image Foret = null  ;
     Image Montagne = null;
     Image Plage  = null;
@@ -16,9 +17,9 @@ public class Terrain {
 
     public Terrain() {
         try {
-            Montagne = ImageIO.read(getClass().getResourceAsStream("/terrains/montagne.png"));
+            Montagne = ImageIO.read(getClass().getResourceAsStream("/terrains/montagneTuile.png"));
             Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/plage.png"));
-            Foret = ImageIO.read(getClass().getResourceAsStream("/terrains/foret.png"));
+            Foret = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
