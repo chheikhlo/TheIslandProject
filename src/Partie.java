@@ -15,6 +15,9 @@ public class Partie implements ActionListener, WindowListener{
 
     //private  = {"Bleu","Vert","Jaune","Rouge"};
 
+
+
+
     /**
      * Innitialisation des pions explorateurs
      *       en remplissant la liste une pions explorateurs

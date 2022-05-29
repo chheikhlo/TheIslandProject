@@ -15,8 +15,11 @@ public class Terrain {
     int count = 0;
     int xHega; int yHega;
 
+<<<<<<< HEAD
     Image tuileTer[] = new Image[50];
     int r = 0 ;
+=======
+>>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
 
 
 
@@ -32,10 +35,18 @@ public class Terrain {
 
 
     }
+<<<<<<< HEAD
      public void paintAle(Graphics2D g2){
 
         xHega = 303;
         yHega = 146;
+=======
+     public void paintAle(Graphics2D g2, Image tuileTer[]){
+
+        xHega = 303;
+        yHega = 146;
+         int r = 0 ;
+>>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
         for (int i = 0; i < 4; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);

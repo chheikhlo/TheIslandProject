@@ -37,6 +37,9 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
     Image Island;
     Hexagon hexagone = new Hexagon(0, 0);
 
+    Image tuilemap[] = new Image[50];
+    Image tuileTer[] = new Image[50];
+
     Terrain terrain = new Terrain();
     Creature creature = new Creature();
     Tuile tuile = new Tuile(terrain, creature);
@@ -74,12 +77,19 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
                     //tuile.getTerrain().tuileForet();
                     // e.getComponent().repaint();
                     //i = +1;
                    // x = mouse.x;
                     //y = mouse.y - 20;
+<<<<<<< HEAD
                     hexagone.affichage();
+=======
+>>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
 
 
                     Status = false;
@@ -161,10 +171,17 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
          //   terrain.paintAle(g2);
+<<<<<<< HEAD
         hexagone.affichage();
 
         terrain.paintg(g2,x,y);
         hexagone.Setuphex();
+=======
+
+        terrain.paintg(g2,x,y);
+        hexagone.Setuphex();
+        hexagone.affichage();
+>>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
 
 
 
@@ -173,8 +190,13 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
         tuile.getTerrain().paintg(g2, x, y);
+<<<<<<< HEAD
         creature.paintCreature(g2);
         terrain.paintAle(g2);
+=======
+        creature.paintCreature(g2,tuilemap);
+        terrain.paintAle(g2,tuileTer);
+>>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
 
         //Pour les 5 serpents sur le plateau
         try {
