@@ -14,7 +14,10 @@ public class Creature {
 
 
     Image map = null;
+    int r = 0;
     int xHega; int yHega;
+
+    Image tuilemap[]  = new Image[50];
 
     public  Creature() throws IOException {
         try {
@@ -53,6 +56,8 @@ public class Creature {
         for (int i = 0; i < 4; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+            tuilemap[r] = map ;
+            r ++;
 
         }
         xHega = 272;
@@ -61,6 +66,9 @@ public class Creature {
 
             Maptuile();
             g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+            tuilemap[r] = map ;
+            r ++;
+
 
         }
         xHega = 181;
@@ -69,6 +77,8 @@ public class Creature {
 
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuilemap[r] = map ;
+            r ++;
 
         }
         //****************************************************
@@ -83,6 +93,8 @@ public class Creature {
                 map = null ;
             }
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuilemap[r] = map ;
+            r ++;
         }
 
 
@@ -92,7 +104,10 @@ public class Creature {
         for (int i = 0; i < 8; i++) {
 
             Maptuile();
+
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuilemap[r] = map ;
+            r ++;
         }
         xHega = 272;
         yHega = 391;
@@ -100,6 +115,8 @@ public class Creature {
 
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuilemap[r] = map ;
+            r ++;
         }
         xHega = 303;
         yHega = 440;
@@ -107,10 +124,14 @@ public class Creature {
 
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuilemap[r] = map ;
+            r ++;
         }
-
-
+        g2.drawImage(tuilemap[0], 0,0,58,68,null);
+           //
     }
+
+
 
 
 }
