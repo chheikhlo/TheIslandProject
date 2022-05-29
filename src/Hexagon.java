@@ -11,6 +11,7 @@ public class Hexagon extends Polygon {
     int yi;
     int xdraw;
     int ydraw;
+    int elemhexa;
 
     public Hexagon(int xi, int yi) {
         this.xi = xi;
@@ -94,6 +95,7 @@ public class Hexagon extends Polygon {
             if (elem.contains(x, y) == true) {
                 xdraw = elem.xpoints[0];
                 ydraw = elem.ypoints[0];
+                elemhexa = listhex.indexOf(elem);
                 System.out.println(listhex.indexOf(elem));
 
 
