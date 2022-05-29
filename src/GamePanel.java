@@ -31,19 +31,27 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
 
+
     TerrainManage terrainManage = new TerrainManage(this);
     Thread gameThread;
     Image Island;
-    Hexagon hexagone = new Hexagon(0,0);
+    Hexagon hexagone = new Hexagon(0, 0);
+
     Terrain terrain = new Terrain();
+    Creature creature = new Creature();
+    Tuile tuile = new Tuile(terrain, creature);
+
 
 
 
     int x = 0, y = 0 , i ;
     int xHega, yHega ;
+
+
+
     Boolean Status = false;
 
-    public GamePanel() {
+    public GamePanel() throws IOException {
         this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
@@ -53,17 +61,25 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
             public void mouseClicked(MouseEvent e) {
                 Status = true;
 
-                while ( Status == true) {
+                while (Status == true) {
                     System.out.println("True ? Flase : " + Status);
+
                     terrain.tuileForet();
 
                     i =+ 1;
-                    x = e.getX(); y = e.getY();
+                    x = mouse.x; y = mouse.y-20;
                     hexagone.checkxy(x,y);
                     x = hexagone.xdraw;
                     y = hexagone.ydraw - 17;
 
 
+
+                    //tuile.getTerrain().tuileForet();
+                    // e.getComponent().repaint();
+                    //i = +1;
+                   // x = mouse.x;
+                    //y = mouse.y - 20;
+                    hexagone.affichage();
 
 
                     Status = false;
@@ -110,8 +126,6 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
     }
 
 
-
-
     @Override
     public void run() {
 
@@ -132,9 +146,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
         }
 
 
-
         g2.setColor(Color.darkGray);
-
 
         //int[] xp  = {30,40,50,40,30,20};
         //int[] yp  = {50,50,40,20,20,40};
@@ -142,36 +154,57 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
         //g2.drawPolygon(xp,yp,xp.length);
 
         g2.drawImage(Island, 0, 0, ScreenWidth, ScreenHeight, null);
-
+        //hexagone.painthexagon(g2);
         g2.drawString(
                 "contains(" + (mouse.x) + ", " + (mouse.y) + ") is "
                         + hexagone.contains(209, 19), 10, 20);
 
-            terrain.paintAle(g2);
+
+         //   terrain.paintAle(g2);
+        hexagone.affichage();
 
         terrain.paintg(g2,x,y);
+        hexagone.Setuphex();
 
 
 
 
 
 
+
+        tuile.getTerrain().paintg(g2, x, y);
+        creature.paintCreature(g2);
+        terrain.paintAle(g2);
+
+        //Pour les 5 serpents sur le plateau
+        try {
+            Serpent serpent = new Serpent();
+            //haut gauche
+            g.drawImage(serpent.imageCreature, 127, 55, 40, 50, null);
+            //haut droite
+            g.drawImage(serpent.imageCreature, 702, 102, 40, 50, null);
+            //centre
+            g.drawImage(serpent.imageCreature, 405, 298, 40, 50, null);
+            //bas gauche
+            g.drawImage(serpent.imageCreature, 98, 496, 40, 50, null);
+            //bas droite
+            g.drawImage(serpent.imageCreature, 680, 540, 40, 50, null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
 
         g2.dispose();
-        hexagone.Setuphex();
-        hexagone.affichage();
-
 
 
     }
 
-    public  void event ( int x , int y) {
-        if(hexagone.contains(x,y) == false   ){
+    public void event(int x, int y) {
+        if (hexagone.contains(x, y) == false) {
             System.out.println("true");
 
-        }else System.out.println("False");
+        } else System.out.println("False");
     }
 
 
@@ -183,8 +216,8 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
     @Override
     public void mouseMoved(MouseEvent e) {
 
-        System.out.println(e.getX()+"  "+e.getY() );
-        event(e.getX(),e.getY());
+        System.out.println(e.getX() + "  " + e.getY());
+        event(e.getX(), e.getY());
 
     }
 

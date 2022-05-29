@@ -6,18 +6,11 @@ import java.util.Set;
 
 public class Serpent extends Creature{
 
-    private Image serpent = null;
+
     public Serpent() throws IOException {
-        serpent = ImageIO.read(getClass().getResourceAsStream("/monstres/serpentTuile.png"));
+        imageCreature = ImageIO.read(getClass().getResourceAsStream("/monstres/serpentTuile.png"));
     }
 
-    public Image getSerpent() {
-        return serpent;
-    }
-
-    public void setSerpent(Image serpent) {
-        this.serpent = serpent;
-    }
 
     /*
     public void detruire(Joueur joueur, Set<Bateau> listBateau, Bateau bateau){

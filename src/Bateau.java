@@ -34,7 +34,7 @@ public class Bateau {
      *permets de retourner la liste de joueurs pouvant controler le bateau
      * et donc le seulement le joueur avec le couleur pion explorateur dominant
      * ou bien tous les joueurs ayant leurs couleurs present dans le bateau
-      * @param joueur
+     * @param joueur
      * @param nbExpDansBateau
      * @return
      */

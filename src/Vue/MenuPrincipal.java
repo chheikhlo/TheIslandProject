@@ -25,7 +25,11 @@ public class MenuPrincipal implements ActionListener {
         quitter.addActionListener(this);
         JButton aide = new JButton();
         aide.setBounds(836,915,155,70);
+
         //aide.addActionListener();
+
+       // aide.addActionListener();
+
 
         menu.pack();
         menu.setVisible(true);
