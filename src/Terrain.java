@@ -15,6 +15,9 @@ public class Terrain {
     int count = 0;
     int xHega; int yHega;
 
+    Image tuileTer[] = new Image[50];
+    int r = 0 ;
+
 
 
 
@@ -36,6 +39,9 @@ public class Terrain {
         for (int i = 0; i < 4; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+            tuileTer[r] = map;
+            r++;
+
 
         }
         xHega = 272;
@@ -43,12 +49,16 @@ public class Terrain {
         for (int i = 0; i < 5; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
+            tuileTer[r] = map;
+            r++;
         }
         xHega = 181;
         yHega = 245;
         for (int i = 0; i < 8; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuileTer[r] = map;
+            r++;
         }
         xHega = 210;
         yHega = 294;
@@ -58,26 +68,36 @@ public class Terrain {
                 map = null;
             }
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuileTer[r] = map;
+            r++;
         }
         xHega = 181;
         yHega = 343;
         for (int i = 0; i < 8; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuileTer[r] = map;
+            r++;
         }
         xHega = 272;
         yHega = 391;
         for (int i = 0; i < 5; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuileTer[r] = map;
+            r++;
         }
         xHega = 303;
         yHega = 440;
         for (int i = 0; i < 4; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
+            tuileTer[r] = map;
+            r++;
         }
-    }
+         g2.drawImage(tuileTer[0], 0,60,58,68,null);
+
+     }
 
 
     public void Maptuile(){
@@ -110,4 +130,3 @@ public class Terrain {
 
     }
 }
-
