@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
                     terrain.tuileForet();
 
                     i =+ 1;
-                    x = e.getX(); y = e.getY();
+                    x = mouse.x; y = mouse.y-20;
                     hexagone.checkxy(x,y);
                     x = hexagone.xdraw;
                     y = hexagone.ydraw - 17;
@@ -75,11 +75,11 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
 
-                    tuile.getTerrain().tuileForet();
+                    //tuile.getTerrain().tuileForet();
                     // e.getComponent().repaint();
-                    i = +1;
-                    x = mouse.x;
-                    y = mouse.y - 20;
+                    //i = +1;
+                   // x = mouse.x;
+                    //y = mouse.y - 20;
 
 
                     Status = false;
@@ -163,7 +163,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
          //   terrain.paintAle(g2);
 
         terrain.paintg(g2,x,y);
-
+        hexagone.Setuphex();
 
 
 
