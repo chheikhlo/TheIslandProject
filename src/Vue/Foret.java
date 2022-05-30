@@ -1,3 +1,5 @@
+package Vue;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 

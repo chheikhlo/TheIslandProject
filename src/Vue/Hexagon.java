@@ -1,5 +1,6 @@
+package Vue;
+
 import java.awt.*;
-import java.awt.event.MouseMotionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

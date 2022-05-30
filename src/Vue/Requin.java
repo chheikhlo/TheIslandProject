@@ -1,5 +1,6 @@
+package Vue;
+
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.IOException;
 
 public class Requin extends Creature{

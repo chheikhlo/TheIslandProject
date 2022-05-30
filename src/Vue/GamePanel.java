@@ -1,3 +1,5 @@
+package Vue;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -143,7 +145,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
         super.paintComponent(g2);
         try {
-            Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
+            Island = ImageIO.read(getClass().getResourceAsStream("/Vue/bgisland.jpeg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

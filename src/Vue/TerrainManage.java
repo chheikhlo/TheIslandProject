@@ -1,3 +1,5 @@
+package Vue;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
@@ -14,7 +16,7 @@ public class TerrainManage {
     }
     public void getTerrain(){
         try {
-            tuile.getTerrain().Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
+            tuile.getTerrain().Island = ImageIO.read(getClass().getResourceAsStream("/Vue/bgisland.jpeg"));
             //terrain.Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);

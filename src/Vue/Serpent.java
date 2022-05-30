@@ -1,8 +1,7 @@
+package Vue;
+
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.IOException;
-import java.util.List;
-import java.util.Set;
 
 public class Serpent extends Creature{
 

@@ -1,7 +1,8 @@
+package Vue;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Joueur {
     private String nom;

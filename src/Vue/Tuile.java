@@ -1,4 +1,4 @@
-
+package Vue;
 
 public class Tuile {
     private Terrain terrain;
