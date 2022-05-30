@@ -81,6 +81,7 @@ public class Hexagon extends Polygon {
     public void affichage() {
         System.out.println(listhex.size());
         for (Hexagon elem : listhex) {
+            System.out.println("--------------"+listhex.indexOf(elem)+"-------------");
             for (int i = 0; i < elem.npoints; i++) {
                 System.out.println(elem.xpoints[i] + "  " + elem.ypoints[i]);
             }
