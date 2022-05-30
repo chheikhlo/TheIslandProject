@@ -1,31 +1,29 @@
 package Vue;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 
 public class MenuPrincipal {
     JButton jouer , aide ;
-    GamePanel G = new GamePanel();
+    G
 
-    public MenuPrincipal() throws IOException {
+    public MenuPrincipal()  {
         JFrame menu = new JFrame() ;
         menu.setTitle("The Island");
-        menu.setSize(1000 , 1000);
+        menu.setSize(600 , 600);
         menu.setResizable(false);
         JLabel label = new JLabel() ;
-        ImageIcon image = new ImageIcon(getClass().getResource("theisland.jpg"));
-        ImageIcon imageJouer = new ImageIcon(getClass().getResource("BoutonJouer.png"));
+        ImageIcon image = new ImageIcon(getClass().getResource("theisland.png"));
+        ImageIcon imageJouer = new ImageIcon(getClass().getResource("BJouer.png"));
+        ImageIcon imageAide = new ImageIcon(getClass().getResource("Baide.png"));
         label.setIcon(image);
         JButton jouer = new JButton("Jouer",imageJouer) ;
-        jouer.setBounds(313,721,350,90);
+        jouer.setBounds(176,400,248,78);
         jouer.setVisible(true);
         jouer.addActionListener(new ActionListener() {
 
@@ -49,10 +47,26 @@ public class MenuPrincipal {
                                     }
                                 }
         ) ;
-
         menu.add(jouer) ;
-        JButton aide = new JButton();
-        aide.setBounds(313 ,833 ,350, 90 );
+        JButton aide = new JButton("aide",imageAide);
+        aide.setBounds(176,500,248,78);
+        aide.setVisible(true);
+        aide.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Desktop.isDesktopSupported()) {
+                    try {
+                        File myFile = new File("regle.pdf");
+                        Desktop.getDesktop().open(myFile);
+                    } catch (IOException ex) {
+
+                    }
+
+                }
+            }
+        });
+        menu.add(aide) ;
         menu.add(label);
         menu.pack();
         menu.setVisible(true);
@@ -61,3 +75,4 @@ public class MenuPrincipal {
 
 
 }
+
