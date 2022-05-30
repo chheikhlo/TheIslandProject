@@ -14,10 +14,6 @@ public class Creature {
 
 
     Image map = null;
-<<<<<<< HEAD
-    int r = 0;
-=======
->>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
     int xHega; int yHega;
 
     Image tuilemap[]  = new Image[50];
@@ -52,26 +48,17 @@ public class Creature {
 
     }
 
-<<<<<<< HEAD
-    public void paintCreature(Graphics g2 ){
-        xHega = 303;
-        yHega = 146;
-=======
     public void paintCreature(Graphics g2, Image tuilemap[]){
         xHega = 303;
         yHega = 146;
         int r = 0;
->>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
+
 
         for (int i = 0; i < 4; i++) {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i, yHega, 58, 67, null);
             tuilemap[r] = map ;
-<<<<<<< HEAD
-            r ++;
-=======
             r++;
->>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
 
         }
         xHega = 272;
@@ -139,11 +126,7 @@ public class Creature {
             Maptuile();
             g2.drawImage(map, xHega + 60 * i + 1, yHega, 58, 66, null);
             tuilemap[r] = map ;
-<<<<<<< HEAD
-            r ++;
-=======
             r++;
->>>>>>> 85badd8dcb45100f23e26f7e9c77152d7e3b73d9
         }
         g2.drawImage(tuilemap[0], 0,0,58,68,null);
            //
