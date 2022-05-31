@@ -1,5 +1,6 @@
 package Vue;
 
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -28,16 +29,11 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
 
 
-
-
-
-
-
-
     TerrainManage terrainManage = new TerrainManage(this);
     Thread gameThread;
     Image Island;
     Hexagon hexagone = new Hexagon(0, 0);
+
 
     Image tuilemap[] = new Image[50];
     Image tuileTer[] = new Image[50];
@@ -60,6 +56,8 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
         this.setPreferredSize(new Dimension(ScreenWidth, ScreenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
+        hexagone.Setuphex();
+
 
         this.addMouseListener(new MouseListener() {
             @Override
@@ -78,12 +76,15 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
                     y = hexagone.ydraw - 17;
 
 
+
+
                     //tuile.getTerrain().tuileForet();
-                    // e.getComponent().repaint();
+                     e.getComponent().repaint();
                     //i = +1;
                    // x = mouse.x;
                     //y = mouse.y - 20;
-                    hexagone.affichage();
+
+                    //hexagone.affichage();
 
 
 
@@ -145,7 +146,7 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
         super.paintComponent(g2);
         try {
-            Island = ImageIO.read(getClass().getResourceAsStream("/Vue/bgisland.jpeg"));
+            Island = ImageIO.read(getClass().getResourceAsStream("/bgisland.jpeg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -167,26 +168,25 @@ public class GamePanel extends JPanel implements Runnable, MouseListener , Mouse
 
          //   terrain.paintAle(g2);
 
-        hexagone.affichage();
 
         terrain.paintg(g2,x,y);
-        hexagone.Setuphex();
+        terrain.paintp(g2,x,y);
 
-
-        terrain.paintg(g2,x,y);
-        hexagone.Setuphex();
-        hexagone.affichage();
-
+        //hexagone.affichage();
+        hexagone.drawHexagon(g2);
 
 
 
 
 
-        tuile.getTerrain().paintg(g2, x, y);
 
-        creature.paintCreature(g2,tuilemap);
-        terrain.paintAle(g2,tuileTer);
 
+
+        //tuile.getTerrain().paintg(g2, x, y);
+
+        //creature.paintCreature(g2,tuilemap);
+        //terrain.paintAle(g2,tuileTer);
+          hexagone.drawHexagon(g2);
 
         //Pour les 5 serpents sur le plateau
         try {
