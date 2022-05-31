@@ -10,9 +10,9 @@ import java.io.IOException;
 
 public class MenuPrincipal {
     JButton jouer , aide ;
-    G
+    GamePanel G = new GamePanel() ;
 
-    public MenuPrincipal()  {
+    public MenuPrincipal() throws IOException {
         JFrame menu = new JFrame() ;
         menu.setTitle("The Island");
         menu.setSize(600 , 600);
