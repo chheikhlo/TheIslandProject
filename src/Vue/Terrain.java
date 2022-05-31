@@ -1,20 +1,18 @@
+package Vue;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
 public class Terrain {
 
     Image imageTerrain = null;
-    Image tabelImag[] = new Image[40];
     Image Foret = null  ;
-    Image perso = null;
     Image Montagne = null;
     Image Plage  = null;
     Image Island = null ;
     Image map = null;
-    Image bateau = null;
     int count = 0;
     int xHega; int yHega;
 
@@ -28,8 +26,6 @@ public class Terrain {
             Montagne = ImageIO.read(getClass().getResourceAsStream("/terrains/montagneTuile.png"));
             Plage = ImageIO.read(getClass().getResourceAsStream("/terrains/plage.png"));
             Foret = ImageIO.read(getClass().getResourceAsStream("/terrains/foretTuile.png"));
-            bateau = ImageIO.read(getClass().getResourceAsStream("bateau.png"));
-            perso = ImageIO.read(getClass().getResourceAsStream("boy_down_1.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -113,13 +109,9 @@ public class Terrain {
         Image tabmap[] = {Montagne,Plage,Foret};
         int min = 0; int max = 3;
         Random ran = new Random();
-        for(int i = 0;i<40;i++) {
-            int a = ran.nextInt(max + min) + min;
-            map = tabmap[a];
-            tabelImag[i] = tabmap[a];
-        }
+        int a = ran.nextInt(max + min) + min;
 
-
+        map = tabmap[a];
 
 
     }
@@ -135,15 +127,10 @@ public class Terrain {
 
     public void  paintg( Graphics2D g,int x,int y ) {
 
-        g.drawImage(bateau,x+10,y+13,39,40,null);
+        //g.drawImage(Foret,x,y,59,62,null);
         //g.drawImage(Montagne,x,y,59,62,null);
 
 
 
-    }
-    public  void paintp(Graphics2D g ,int x ,int y ){
-        g.drawImage(perso,x+12,y+12,20,19,null);
-        g.drawImage(perso,x+24,y+17,20,19,null);
-        g.drawImage(perso,x+36,y+22,20,19,null);
     }
 }
